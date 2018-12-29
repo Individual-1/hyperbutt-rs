@@ -1,8 +1,15 @@
+cargo-features = ["rename-dependency"]
+
 [package]
 name = "hyperbutt-rs"
 version = "0.1.0"
 authors = ["a <b@c>"]
 edition = "2018"
 
+[lib]
+crate-type = ["staticlib"]
+
 [dependencies]
+compiler_builtins = "*"
+multiboot2 = "*"
 

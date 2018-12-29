@@ -1,5 +1,8 @@
+#![feature(no_std, lang_items, asm)]
 #![no_std]
 #![no_main]
+
+extern crate compiler_builtins;
 
 use core::panic::PanicInfo;
 
