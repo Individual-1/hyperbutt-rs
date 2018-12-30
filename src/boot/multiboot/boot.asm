@@ -1,7 +1,7 @@
 global start
 extern longmode_boot
 
-section.text
+section .text
 bits 32
 start:
     ; Set up stack
@@ -44,7 +44,7 @@ check_multiboot:
     cmp eax, 0x36d76289
     jne .no_multiboot
     ret
-.no_multiboot
+.no_multiboot:
     mov al, "0"
     call err
 
@@ -61,7 +61,7 @@ check_a20:
     je .no_a20
     ret
 ; In theory we could just try to enable the a20, but just die for now
-.no_a20
+.no_a20:
     mov al, "1"
     call err
 
@@ -80,8 +80,8 @@ check_cpuid:
     xor eax, ecx
     jz .no_cpuid
     ret
-.no_cpuid
-    mv al, "2"
+.no_cpuid:
+    mov al, "2"
     call err
 
 ; Check if long mode is available, pulled from osdev.org
@@ -96,7 +96,7 @@ check_longmode:
     jz .no_longmode
     ret
 .no_longmode:
-    mv al, "3"
+    mov al, "3"
     call err
 
 ; Do fairly minimal identity mapping

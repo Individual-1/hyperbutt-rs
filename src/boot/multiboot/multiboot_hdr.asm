@@ -1,4 +1,4 @@
-section .multiboot
+section .multiboot_hdr
 
 hdr_start:
     dd 0xe85250d6           ; Multiboot2 header magic

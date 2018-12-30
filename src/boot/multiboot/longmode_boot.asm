@@ -22,8 +22,9 @@ check_sse:
     cpuid
     test edx, 1<<25
     jz .no_sse
+    ret
 .no_sse:
-    mov al "s"
+    mov al, "s"
     call err
 
 ; Enable SSE
