@@ -6,6 +6,14 @@ extern crate compiler_builtins;
 
 use core::panic::PanicInfo;
 
+/*
+Use this for UEFI-only boot functions
+#[cfg(bootloader = "uefi")]
+
+Use this for multiboot-only boot functions
+#[cfg(bootloader = "multiboot")]
+*/
+
 // Panic Handler, we will never return from it, so may as well loop forever
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {

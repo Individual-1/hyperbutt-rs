@@ -33,7 +33,7 @@ $(KERNEL):
 	@ld -n --gc-sections -T $(LINKER_SCRIPT) -o $(KERNEL) $()
 
 cargo:
-	@cargo xbuild --target x86_64-hyperbutt-rs.json --cfg multiboot="true"
+	@cargo xbuild --target x86_64-hyperbutt-rs.json --cfg bootloader="multiboot"
 
 build/boot/multiboot/%.o:
 	src/boot/multiboot/%.asm
