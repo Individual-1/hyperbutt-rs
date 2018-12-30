@@ -22,6 +22,13 @@ fn panic(_info: &PanicInfo) -> ! {
 
 // Since we don't have a stdlib, we need to provide the _start symbol
 #[no_mangle]
+#[cfg(bootloader = "uefi")]
 pub extern "C" fn _start() -> ! {
     loop {}
+}
+
+#[no_mangle]
+#[cfg(bootloader = "multiboot")]
+pub extern fn multiboot_main(multiboot_address: usize) {
+    
 }
