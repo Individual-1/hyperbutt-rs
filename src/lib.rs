@@ -11,6 +11,10 @@ Use this for multiboot-only boot functions
 #[cfg(feature = "boot-multiboot")]
 */
 
+// Bring in our bitflags macro
+#[macro_use]
+extern crate bitfield;
+
 // Panic Handler, we will never return from it, so may as well loop forever
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {

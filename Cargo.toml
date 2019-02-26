@@ -9,6 +9,7 @@ crate-type = ["staticlib"]
 
 [dependencies]
 multiboot2 = "*"
+bitfield = "*"
 
 [features]
 boot-multiboot = []
