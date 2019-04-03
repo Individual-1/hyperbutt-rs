@@ -1,6 +1,8 @@
 #![feature(lang_items, asm)]
 #![no_std]
 
+extern crate multiboot2;
+
 use core::panic::PanicInfo;
 
 /*
@@ -31,5 +33,6 @@ pub extern "C" fn _start() -> ! {
 #[no_mangle]
 #[cfg(feature = "boot-multiboot")]
 pub extern fn multiboot_main(multiboot_address: usize) {
+    let mb_info = unsafe { multiboot2::load(multiboot_address) };
     loop {}
 }

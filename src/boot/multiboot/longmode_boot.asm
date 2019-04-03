@@ -13,6 +13,8 @@ longmode_boot:
     ; Enable SSE
     call enable_sse
 
+    ; edi still contains our multiboot header
+
     ; Call our rust entry point
     call multiboot_main
 
