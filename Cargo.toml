@@ -8,8 +8,13 @@ edition = "2018"
 crate-type = ["staticlib"]
 
 [dependencies]
-multiboot2 = "*"
 bitfield = "*"
+multiboot2 = "*"
+volatile = "*"
+
+[dependencies.lazy_static]
+version = "*"
+features = ["spin_no_std"]
 
 [features]
 boot-multiboot = []
