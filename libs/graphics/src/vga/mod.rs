@@ -1,10 +1,7 @@
-#[macro_use]
-extern crate lazy_static;
-
 use volatile::Volatile;
 
 // VGA text buffer address
-const VGA_ADDRESS: const usize = 0xb8000;
+const VGA_ADDRESS: usize = 0xb8000;
 
 // Text buffer width and height
 const VGA_BUF_WIDTH: usize = 80;
@@ -41,6 +38,6 @@ impl VGAWriter {
 lazy_static! {
     pub static ref VGA_WRITER: VGAWriter = VGAWriter {
         col: 0,
-        vga_buffer: unsafe { &mut *(VGA_ADDRESS as *mut VGABuffer) };
+        vga_buffer: unsafe { &mut *(VGA_ADDRESS as *mut VGABuffer) },
     };
 }

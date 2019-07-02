@@ -5,5 +5,7 @@
 #[macro_use]
 extern crate bitfield;
 
+pub mod paging;
+
 // 4k pages
 pub const PAGE_SIZE: usize = 4096;

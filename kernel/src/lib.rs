@@ -1,6 +1,5 @@
 #![feature(lang_items, asm)]
 #![no_std]
-#![no_main]
 
 extern crate multiboot2;
 
@@ -31,12 +30,5 @@ pub extern "C" fn _start() -> ! {
 #[cfg(feature = "boot-multiboot")]
 pub extern fn multiboot_main(multiboot_address: usize) {
     let mb_info = unsafe { multiboot2::load(multiboot_address) };
-    loop {}
-}
-
-// If we are booting multiboot, this shouldn't matter
-#[no_mangle]
-#[cfg(feature = "boot-multiboot")]
-pub extern "C" fn _start() -> ! {
     loop {}
 }

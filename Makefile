@@ -6,9 +6,9 @@ ISO := build/os-$(ARCH).iso
 
 # Pointers to existing/intermediate files
 ifeq ($(BUILD),debug)
-	RUST_KERNEL := kernel/target/$(ARCH)-hyperbutt-rs/debug/hyperbutt-rs
+	RUST_KERNEL := kernel/target/$(ARCH)-hyperbutt-rs/debug/libhyperbutt_rs.a
 else
-	RUST_KERNEL := kernel/target/$(ARCH)-hyperbutt-rs/release/hyperbutt-rs
+	RUST_KERNEL := kernel/target/$(ARCH)-hyperbutt-rs/release/libhyperbutt_rs.a
 endif
 LINK_SCRIPT := boot/src/multiboot/linker.ld
 GRUB_CFG := boot/src/multiboot/grub.cfg

@@ -1,4 +1,4 @@
-use memory::PAGE_SIZE;
+use super::PAGE_SIZE;
 
 /*
 * We are targeting x64 and thus use a 4 level paging structure
@@ -10,7 +10,7 @@ use memory::PAGE_SIZE;
 pub const ENTRY_COUNT: usize = 512;
 
 // Since pml4 is recursively mapped, here is the constant addr to access it
-pub const PML4: *mut PageMap = 0xffffffff_fffff000 as  *mut _;
+pub const PML4: *mut PageTable = 0xffffffff_fffff000 as  *mut _;
 
 // Useful aliases
 pub type PhysAddress = usize;
