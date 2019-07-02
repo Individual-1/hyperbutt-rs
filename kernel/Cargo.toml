@@ -4,13 +4,10 @@ version = "0.1.0"
 authors = ["a <b@c>"]
 edition = "2018"
 
-[lib]
-crate-type = ["staticlib"]
-
 [dependencies]
-bitfield = "*"
 multiboot2 = "*"
 volatile = "*"
+memory = { path = "../libs/memory" }
 
 [dependencies.lazy_static]
 version = "*"
@@ -19,3 +16,10 @@ features = ["spin_no_std"]
 [features]
 boot-multiboot = []
 boot-uefi = []
+
+[profile.release]
+panic = "abort"
+debug = false
+
+[profile.dev]
+panic = "abort"

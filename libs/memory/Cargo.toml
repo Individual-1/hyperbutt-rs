@@ -1,0 +1,8 @@
+[package]
+name = "memory"
+version = "0.1.0"
+authors = ["a <b@c>"]
+edition = "2018"
+
+[dependencies]
+bitfield = "*"

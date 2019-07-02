@@ -1,5 +1,6 @@
 #![feature(lang_items, asm)]
 #![no_std]
+#![no_main]
 
 extern crate multiboot2;
 
@@ -12,10 +13,6 @@ Use this for UEFI-only boot functions
 Use this for multiboot-only boot functions
 #[cfg(feature = "boot-multiboot")]
 */
-
-// Bring in our bitflags macro
-#[macro_use]
-extern crate bitfield;
 
 // Panic Handler, we will never return from it, so may as well loop forever
 #[panic_handler]
@@ -34,5 +31,12 @@ pub extern "C" fn _start() -> ! {
 #[cfg(feature = "boot-multiboot")]
 pub extern fn multiboot_main(multiboot_address: usize) {
     let mb_info = unsafe { multiboot2::load(multiboot_address) };
+    loop {}
+}
+
+// If we are booting multiboot, this shouldn't matter
+#[no_mangle]
+#[cfg(feature = "boot-multiboot")]
+pub extern "C" fn _start() -> ! {
     loop {}
 }
